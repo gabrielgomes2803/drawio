@@ -1,0 +1,73 @@
+@startuml
+
+abstract class Usuario {
+  - id: String
+  - nome: String
+  - email: String
+  - telefone: String
+  - senha: String
+  + login(): boolean
+  + editarPerfil()
+}
+
+class UsuarioCego {
+  - idioma: String
+  - modoRetorno: Enum
+  - alertaSensivel: Bool
+  + navegar()
+  + receberAlertas()
+}
+
+class AjudanteVoluntario {
+  - reputacao: Float
+  - crachaDigital: String
+  - cidade: String
+  + reportarAlerta()
+  + validarAlerta()
+}
+
+Usuario <|-- UsuarioCego
+Usuario <|-- AjudanteVoluntario
+
+class AlertaUrbano {
+  - id: String
+  - tipo: Enum
+  - descricao: String
+  - foto: String (base64)
+  - audio: String (base64)
+  - localizacao: GeoPoint
+  - status: Enum
+  - criadoPor: Usuario
+  - dataCriacao: DateTime
+  + enviar()
+  + validar()
+}
+
+class RotaSegura {
+  - id: String
+  - origem: GeoPoint
+  - destino: GeoPoint
+  - alertasEvitados: List
+  - instrucoes: List<String>
+  + calcularRota()
+  + adicionarDesvio()
+}
+
+class ObjetoReconhecido {
+  - id: String
+  - nome: String
+  - tipo: Enum
+  - local: GeoPoint
+  - dataReconhecimento: Date
+}
+
+class Prefeitura {
+  - id: String
+  - nome: String
+  - cidade: String
+  - contato: String
+  + enviarDadosObras()
+  + integrarSistema()
+}
+
+class Sis
